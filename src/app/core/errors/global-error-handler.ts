@@ -7,7 +7,6 @@ export class GlobalErrorHandler implements ErrorHandler {
 
   handleError(error: Error) {
     this.errorDialogService.openDialog("Undefined client error");
-    // open dialog
     console.error("Error from global error handler", error);
   }
 }
