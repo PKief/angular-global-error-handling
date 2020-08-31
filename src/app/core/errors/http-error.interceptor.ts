@@ -13,8 +13,6 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
-  count = 0;
-
   constructor(
     private errorDialogService: ErrorDialogService,
     private loadingDialogService: LoadingDialogService
@@ -25,30 +23,14 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     this.loadingDialogService.openDialog();
-    this.count++;
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        this.loadingDialogService.hideDialog();
-        let errorMessage = "";
-
-        if (!navigator.onLine) {
-          errorMessage = "No internet connection!";
-        } else if (error.error instanceof Error) {
-          errorMessage = `An error occurred: ${error.error.message}`;
-        } else {
-          errorMessage = `${JSON.stringify(error, undefined, 2)}`;
-        }
-
-        console.error('Error from error interceptor', error);
-        console.error(errorMessage);
-        this.errorDialogService.openDialog(errorMessage, error.status);
+        console.error("Error from error interceptor", error);
+        this.errorDialogService.openDialog(JSON.stringify(error), error.status);
         return throwError(error);
       }),
       finalize(() => {
-        this.count--;
-        if (this.count === 0) {
-          this.loadingDialogService.hideDialog();
-        }
+        this.loadingDialogService.hideDialog();
       })
     ) as Observable<HttpEvent<any>>;
   }
