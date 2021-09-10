@@ -1,6 +1,10 @@
-# AngularGlobalErrorHandling
+# Angular Global Error Handling
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+<p>Learn how to automatically catch all errors in a web application written in Angular and process them accordingly</p>
+
+<a href="https://pkief.medium.com/global-error-handling-in-angular-ea395ce174b1">📖 Read more on Medium</a>
+
+<img src="./cover-image.png" width="500px" alt="Global Error Handling Cover Image"/>
 
 ## Development server
 
