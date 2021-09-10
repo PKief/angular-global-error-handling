@@ -16,7 +16,7 @@ export class GlobalErrorHandler implements ErrorHandler {
     }
     this.zone.run(() =>
       this.errorDialogService.openDialog(
-        error.message || 'Undefined client error'
+        error?.message || 'Undefined client error'
       )
     );
 
