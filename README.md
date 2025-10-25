@@ -2,7 +2,7 @@
 
 <p>Learn how to automatically catch all errors in a web application written in Angular and process them accordingly</p>
 
-<a href="https://pkief.medium.com/global-error-handling-in-angular-ea395ce174b1">📖 Read more on Medium</a>
+<a href="https://www.pkief.com/blog/global-error-handling-in-angular">📖 Read full blog article</a>
 
 <img src="./cover-image.png" width="500px" alt="Global Error Handling Cover Image"/>
 
